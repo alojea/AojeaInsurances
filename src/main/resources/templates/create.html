@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default">
+    <head>
+        <title>New Member</title>
+          <link rel="stylesheet" type="text/css"
+	th:href="@{webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <h3>
+                    <a href="/member" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list"></span> Member List</a>
+                </h3>
+                <h2>Create New Member</h2>
+                <form action="/save">
+                    <div class="form-group">
+                        <label for="email">Name:</label>
+                        <input type="text" class="form-control" name="name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Surname</label>
+                        <input type="text" class="form-control" name="surname" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Policy Number</label>
+                        <input type="number" class="form-control" name="policyNumber" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Vehicle Image Url:</label>
+                        <input type="url" class="form-control" name="vehicleUrlImage" />
+                    </div>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript"
+		th:src="@{../webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+    </body>
+</html>

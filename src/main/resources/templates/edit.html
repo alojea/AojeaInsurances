@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default">
+    <head>
+        <title>Edit Member Details</title>
+        <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <h3>
+                    <a href="/member" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list"></span> Member</a>
+                </h3>
+                <h2>Edit Member</h2>
+                <form action="/update">
+                    <div class="form-group">
+                        <label for="email">Name:</label>
+                        <input type="text" class="form-control" name="name" th:value="${member.name}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Surname:</label>
+                        <input type="text" class="form-control" name="surname" th:value="${member.surname}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Policy Number</label>
+                        <input type="number" class="form-control" name="policyNumber" th:value="${member.policyNumber}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Vehicle Image URL:</label>
+                        <input type="url" class="form-control" name="vehicleUrlImage" th:value="${member.vehicleImageUrl}" />
+                    </div>
+                    <input type="hidden" name="id" th:value="${member.id}" />
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+            </div>
+        </div>
+        <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>

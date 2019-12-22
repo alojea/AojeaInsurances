@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default">
+    <head>
+        <title>Show Member</title>
+        <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <h3>
+                    <a href="/member" class="btn btn-primary"><span class="glyphicon glyphicon-list"></span> Member List</a>
+                </h3>
+                <h2 th:text="${member.name + ' ' + member.surname}"></h2>
+                <h2><img th:src="${member.vehicleImageUrl}" width="200" /></h2>
+                <dl class="list">
+                    <dt>Policy Number</dt>
+                    <dd th:text="${member.policyNumber}"></dd>
+                </dl>
+                <form action="/delete">
+                    <input type="hidden" name="id" th:value="${member.id}" />
+                    <h2><input type="submit" class="btn btn-danger" value="Delete" onclick="return confirm('Are you sure?');" />
+                        <a th:href="@{'/edit/' + ${member.id}}" class="btn btn-warning">Edit</a></h2>
+                </form>
+            </div>
+        </div>
+        <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>

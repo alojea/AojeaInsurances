@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default">
+    <head>
+        <title>Member List</title>
+         <!--  <link rel="stylesheet" type="text/css"
+	th:href="@{webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+        <link rel="stylesheet" href="/css/style.css" />-->
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <h3>
+                    <a href="/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Add new member</a>
+                </h3>
+                <h2>Member List</h2>
+                <div class="table-responsive">
+                    <table class="table" id="member-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th>Policy Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="member : ${members}">
+                                <td><a th:text="${member.name}" th:href="@{'/show/' + ${member.id}}"></a></td>
+                                <td th:text="${member.surname}"></td>
+                                <td th:text="${member.policyNumber}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+          <!-- <script type="text/javascript"
+		th:src="@{../webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>-->
+    </body>
+    
+</html>
